@@ -954,6 +954,7 @@ img {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   padding: 0.25rem 0.5rem 0.5rem 0;
+  padding-left: 0.5rem;
 }
 
 /*==================== FOOTER ====================*/
