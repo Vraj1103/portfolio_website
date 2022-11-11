@@ -3,6 +3,25 @@ const navMenu = document.getElementById('nav-menu'),
         navToggle = document.getElementById('nav-toggle'),
         navClose = document.getElementById('nav-close')
 
+/* Tying effect */
+
+const options = {
+    strings: [
+      "Front-End Developer ^800",
+      "Freelancer ^800",
+      "Programmer ^800",
+      "Student ^800",
+    ],
+    typeSpeed: 40,
+    backSpeed: 40,
+    backDelay: 1000,
+    loop: true,
+    autoInsertCss: true,
+  }
+  
+  const typed = new Typed (".home__subtitle", options)
+
+
 
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
