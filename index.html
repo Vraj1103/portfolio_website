@@ -853,34 +853,32 @@
 
                             </div>
 
-                            <form action="" class="contact__form grid">
+                            <form method="post" class="contact__form grid" name="submit-to-google-sheet">
                                 <div class="contact__inputs grid">
                                     <div class="contact__content">
                                         <label for="" class="contact__label">Name</label>
-                                        <input type="text" class="contact__input">
+                                        <input type="text" class="contact__input" name="Name">
                                     </div>
 
                                     <div class="contact__content">
                                         <label for="" class="contact__label">Email</label>
-                                        <input type="email"  class="contact__input">
+                                        <input type="email"  class="contact__input" name="email">
                                     </div>
 
                                 </div>
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Project</label>
-                                    <input type="text"  class="contact__input">
+                                    <input type="text"  class="contact__input" name="project">
                                 </div>
                                 <div class="contact__content">
                                     <label for="" class="contact__label">Message</label>
-                                    <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
+                                    <textarea name="" id="" cols="0" rows="7" class="contact__input" name="msg" ></textarea>
                                 </div>
 
                                 <div>
-                                    <a href="#" class="button button--flex">
-                                        Send Message
-                                        <i class="uil uil-message button__icon"></i>
-                                    </a>
+                                    <button type="submit" class="button button--flex">Send Message</button>
                                 </div>
+                                <span id = "msg"></span>
                             </form>
                         </div>
                      </section>
@@ -941,4 +939,19 @@
         <!-- main js -->
         <script src="assets/js/main.js" async defer></script>
     </body>
+<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzU54uWXefK50QywRuyr9Th_bLLzHnhECcGqTDSngJMAgN40aF96TerpYr-U7WQ375soA/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+            msg.innerHTML = "Thank you for contacting me. I will get back to you soon."
+            setTimeout(function(){ msg.innerHTML = ""; }, 2000)
+            form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </html>
