@@ -102,6 +102,10 @@ body.dark-theme {
   color: var(--first-color);
 }
 
+button{
+  border: none;
+}
+
 /*==================== BASE ====================*/
 * {
   box-sizing: border-box;
